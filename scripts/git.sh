@@ -25,11 +25,13 @@ fi
 # setup default branch
 GIT_DEFAULTBRANCH=`git config --list | grep init.defaultbranch`
 if [ -z "$GIT_DEFAULTBRANCH" ]; then
+  echo "The git init.defaultbranch isn't set. Setting it to 'main'."
   git config --global init.defaultbranch "main"
 fi
 
 # setup pull rebase
 GIT_PULLREBASE=`git config --list | grep pull.rebase`
 if [ -z "$GIT_PULLREBASE" ]; then
+  echo "The git pull.rebase isn't set. Setting it to 'false'."
   git config --global pull.rebase "false"
 fi

@@ -23,8 +23,14 @@ Install the Windows Terminal from the Windows Store. Then open the settings and 
 1. Install the latest Ubuntu LTS release from the Windows Store. Then click open to install Ubuntu.
 2. Make sure that Ubuntu is running in WSL2 by running the following in a powershell terminal: `wsl -l -v`
     - If the version isn't 2, change the version: `wsl --set-version [Ubuntu Name] 2`
+3. Set the Ubuntu git credential manager to be handled by the Windows git instance by running the following it an Ubuntu shell: `git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"`
 
 ### Docker
 
 1. Make sure "Use the WSL 2 based engine" is checked in the Docker General settings.
 2. Under Settings -> Resources -> WSL integration, make sure the Ubuntu version is enabled for integration.
+
+## Setup
+
+1. Clone this repo into the Ubuntu instance.
+2. Run the startup script.

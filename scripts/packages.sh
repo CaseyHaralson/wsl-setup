@@ -4,4 +4,5 @@ echo "=================================="
 echo "Update apt packages ..."
 echo "=================================="
 
+# update packages lists
 sudo apt update

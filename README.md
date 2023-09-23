@@ -10,7 +10,8 @@ There are multiple ways to install WSL, but this is what I did last time:
 2. Reboot after making changes
 3. Might have to download a version 2 kernel update and set default version
     - https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
-4. Check to make sure WSL2 is installed by running the following in a powershell terminal: `wsl --status`
+4. Set the default WSL version to version 2: `wsl --set-default-version 2`
+5. Check to make sure WSL2 is installed by running the following in a powershell terminal: `wsl --status`
 
 ## Pre-setup
 
@@ -18,12 +19,21 @@ There are multiple ways to install WSL, but this is what I did last time:
 
 Install the Windows Terminal from the Windows Store. Then open the settings and set the startup default as Windows Terminal.
 
+### Git
+
+1. Install Git for Windows and clone a private Github directory or something to trigger a git credentials entry popup.
+2. Make sure the credentials have been stored:
+    - Search for Credential Manager in Windows and open it
+    - Go to the Windows Credentials section and look for a "git:https://github.com" entry in the Generic Credentials section
+3. If there isn't an entry, check to make sure that the manager is being used (looking for credential.helper=manager): `git config --list`
+
 ### Ubuntu
 
 1. Install the latest Ubuntu LTS release from the Windows Store. Then click open to install Ubuntu.
 2. Make sure that Ubuntu is running in WSL2 by running the following in a powershell terminal: `wsl -l -v`
     - If the version isn't 2, change the version: `wsl --set-version [Ubuntu Name] 2`
-3. Set the Ubuntu git credential manager to be handled by the Windows git instance by running the following it an Ubuntu shell: `git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"`
+3. Set the default WSL distribution to Ubuntu (this can help with Docker because Docker installs two distributions that can't be used as the default): `wsl --set-default [Ubuntu Name]`
+4. Set the Ubuntu git credential manager to be handled by the Windows git instance by running the following it an Ubuntu shell: `git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"`
 
 ### Docker
 

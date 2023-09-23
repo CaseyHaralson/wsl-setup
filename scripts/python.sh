@@ -1,15 +1,15 @@
 #!/bin/sh
 
 echo "=================================="
-echo "Mamba Python setup ..."
+echo "Python setup ..."
 echo "=================================="
 
 STARTING_DIR=$(pwd)
 TEMP_DIR=$STARTING_DIR/scripts/temp
 
-# istall mamba
-MAMBA_LOCATION=`command -v mamba`
-if [ -z "$MAMBA_LOCATION" ]; then
+# install mamba
+MAMBA_SHELL=`cat ~/.bashrc | grep mamba.sh`
+if [ -z "$MAMBA_SHELL" ]; then
   echo "Mamba isn't installed. Installing it now."
   cd $TEMP_DIR
   curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh"

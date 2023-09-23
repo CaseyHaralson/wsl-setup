@@ -9,7 +9,7 @@ set -e
 # git setup
 ./scripts/git.sh
 
-# mamba python setup
-./scripts/mamba.sh
+# python setup
+./scripts/python.sh
 
 

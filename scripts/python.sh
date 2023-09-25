@@ -25,3 +25,13 @@ AUTO_ACTIVATE_BASE=`cat ~/mambaforge/.condarc | grep auto_activate_base`
 if [ -z "$AUTO_ACTIVATE_BASE" ]; then
   echo "auto_activate_base: false" >> ~/mambaforge/.condarc
 fi
+
+# install quarto
+QUARTO=`command -v quarto`
+if [ -z "$QUARTO" ]; then
+  echo "Quarto isn't installed. Installing it now."
+  cd $TEMP_DIR
+  curl -L -o quarto.deb "https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.450/quarto-1.3.450-linux-amd64.deb"
+  sudo dpkg -i quarto.deb
+  cd $STARTING_DIR
+fi

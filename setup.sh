@@ -12,4 +12,5 @@ set -e
 # python setup
 ./scripts/python.sh
 
-
+# node setup
+./scripts/node.sh

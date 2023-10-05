@@ -35,3 +35,10 @@ if [ -z "$GIT_PULLREBASE" ]; then
   echo "The git pull.rebase isn't set. Setting it to 'false'."
   git config --global pull.rebase "false"
 fi
+
+# setup editor
+GIT_EDITOR=`git config --list | grep core.editor`
+if [ -z "$GIT_EDITOR" ]; then
+  echo "The git core.editor isn't set. Setting it to 'vim'."
+  git config --global core.editor "vim"
+fi

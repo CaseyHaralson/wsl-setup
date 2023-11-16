@@ -32,6 +32,13 @@ if [ -z "$LOC" ]; then
   sudo apt install jq
 fi
 
+# install zip
+LOC=`command -v zip`
+if [ -z "$LOC" ]; then
+  echo "zip isn't installed. This will install it."
+  sudo apt install zip
+fi
+
 # install apt-transport-https (group of packages)
 # needed by gcloud
 LOC=`dpkg -l apt-transport-https | grep 'ii  apt-transport-https'`

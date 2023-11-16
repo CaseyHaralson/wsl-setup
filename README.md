@@ -43,4 +43,4 @@ Install the Windows Terminal from the Windows Store. Then open the settings and 
 ## Setup
 
 1. Clone this repo into the Ubuntu instance.
-2. Run the startup script.
+2. Run the startup script: `./setup.sh`

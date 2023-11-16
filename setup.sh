@@ -3,7 +3,7 @@
 # fail if any called scripts fail
 set -e
 
-# update packages
+# packages setup
 ./scripts/packages.sh
 
 # git setup
@@ -14,3 +14,9 @@ set -e
 
 # node setup
 ./scripts/node.sh
+
+# gcloud setup
+./scripts/gcloud.sh
+
+# terraform setup
+./scripts/terraform.sh

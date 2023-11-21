@@ -39,6 +39,13 @@ if [ -z "$LOC" ]; then
   sudo apt install zip
 fi
 
+# install hey
+LOC=`command -v hey`
+if [ -z "$LOC" ]; then
+  echo "hey isn't installed. This will install it."
+  sudo apt install hey
+fi
+
 # install apt-transport-https (group of packages)
 # needed by gcloud
 LOC=`dpkg -l apt-transport-https | grep 'ii  apt-transport-https'`

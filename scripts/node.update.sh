@@ -10,7 +10,8 @@ INSTALLABLE_VERSION=20
 # check to see if node is installed
 NODE=`command -v node | grep -v '/mnt/c/'`
 if [ -z "$NODE" ]; then
-  echo "Nodejs isn't installed. Skipping..."
+  echo "The Nodejs configuration might have been messed with during the package upgrade. Reinstalling..."
+  ./scripts/node.sh
 else
 
   # compare the version of node installed to the minimum version

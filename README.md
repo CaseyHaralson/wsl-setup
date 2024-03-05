@@ -13,6 +13,29 @@ There are multiple ways to install WSL, but this is what I did last time:
 4. Set the default WSL version to version 2: `wsl --set-default-version 2`
 5. Check to make sure WSL2 is installed by running the following in a powershell terminal: `wsl --status`
 
+EDIT: I think it is now possible to install with `wsl --install`
+You would still need to check the status and whatnot afterward, but it looks like this is available now.
+
+### WSL Memory Usage
+
+If you use docker with WSL, docker will gobble up as much memory as possible so you will need to limit the usage.
+Later versions of Windows actually only give 50% of the memory to WSL while earlier versions allowed up to 80% usage.
+
+You can set a custom limit and some other settings by creating a file here: `%UserProfile%/.wslconfig`
+
+The file should look like the following:
+
+```
+[wsl2]
+memory=6GB
+swap=0
+...etc...
+```
+
+Additional configurations can be found here: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig
+
+Restart after changing a setting, or use one of the other ways you can find online to get WSL to pick up the new settings.
+
 ## Pre-setup
 
 ### Windows Terminal
